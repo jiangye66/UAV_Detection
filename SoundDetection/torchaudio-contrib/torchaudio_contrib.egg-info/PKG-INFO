@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: torchaudio-contrib
+Version: 0.1
+Summary: To propose audio processing Pytorch codes with nice and easy-to-use APIs and functionality
+Home-page: https://github.com/keunwoochoi/torchaudio-contrib
+Author: Keunwoo Choi, Faro Stöter, Kiran Sanjeevan, Jan Schlüter
+Author-email: gnuchoi@gmail.com
+License: MIT
+Provides-Extra: tests
