@@ -5,8 +5,9 @@ import torch
 from utils import Logger
 import data as data_module
 import net as net_module
-from train import Trainer
+from train.trainer import Trainer
 from eval import ClassificationEvaluator, AudioInference
+
 
 # Helper: 获取数据增强变换对象
 def _get_transform(config, name):
@@ -126,6 +127,15 @@ def train_main(config, resume):
                       train_logger=train_logger)
 
     trainer.train()
+
+    # 指定保存图形的路径
+    result_plot_dir = 'result_plot'
+    os.makedirs(result_plot_dir, exist_ok=True)  # 创建文件夹（如果不存在）
+    save_path = os.path.join(result_plot_dir, 'metrics_plot.png')  # 组合保存路径
+
+    # 绘制并保存指标图
+    trainer.plot_metrics(save_path=save_path)
+
     return trainer
 
 # 测试数据加载器
