@@ -96,6 +96,13 @@ class AudioInference:
         sig, sr = load_audio(path)  # 加载音频
         sig = torch.tensor(sig).mean(dim=1).view(1, 1, -1).float()  # 处理音频信号为合适尺寸
         spec = self.mel(sig)[0]  # 生成梅尔频谱图
-        out_path = os.path.basename(path).split('.')[0] + '_pred.png'  # 设置输出路径
+
+        # 创建输出路径的文件夹
+        output_dir = 'result'  # 输出文件夹为当前目录下的 result
+        os.makedirs(output_dir, exist_ok=True)  # 如果文件夹不存在则创建
+
+        out_path = os.path.join(output_dir, os.path.basename(path).split('.')[0] + '_pred.png')  # 设置输出路径
         pred_txt = "%s (%.1f%%)" % (label, 100 * conf)  # 生成预测文本
         plot_heatmap(spec.cpu().numpy(), out_path, pred=pred_txt)  # 绘制热图并保存
+        print("Result directory:", out_path)
+

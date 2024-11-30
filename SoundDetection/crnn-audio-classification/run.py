@@ -154,13 +154,18 @@ if __name__ == '__main__':
     # 命令行参数解析
     argparser = argparse.ArgumentParser(description='PyTorch Template')
 
+    # action：必须参数，指定用户要执行的操作（训练、测试或评估）。
+    # --config：可选参数，指定配置文件路径，供后续使用。
+    # --resume：可选参数，指定恢复模型的检查点文件路径。
+    # --net_mode：可选参数，指定迁移学习的类型，默认为init。
+    # --cfg：可选参数，用于指定神经网络层的配置文件。
     argparser.add_argument('action', type=str, help='what action to take (train, test, eval)')
     argparser.add_argument('-c', '--config', default=None, type=str, help='config file path')
     argparser.add_argument('-r', '--resume', default=None, type=str, help='path to latest checkpoint')
     argparser.add_argument('--net_mode', default='init', type=str, help='type of transfer learning to use')
     argparser.add_argument('--cfg', default=None, type=str, help='nn layer config file')
 
-    args = argparser.parse_args()
+    args = argparser.parse_args()   #解析命令行传入的参数，并将其存储在args对象中
 
     # 配置加载：优先加载 config，如果无 config 则加载检查点
     # 加载配置或检查点
