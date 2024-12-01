@@ -2,7 +2,7 @@
     "name"          :   "Urban Testing",
     "data"          :   {
                             "type"      :   "CSVDataManager",
-                            "path"      :   "e:/datasets/UrbanSound8K",
+                            "path"      :   "D:/detection/datasets/UrbanSound8K",
                             "format"    :   "audio",
                             "loader"    :   {
                                                 "shuffle"       : true,
