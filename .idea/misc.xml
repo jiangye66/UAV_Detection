@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="D:\Anaconda\envs\sound_detection" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="D:\Anaconda\envs\sound_detection" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="detection" project-jdk-type="Python SDK" />
 </project>
