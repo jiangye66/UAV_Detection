@@ -1,0 +1,75 @@
+{
+    "name": "Urban Testing",
+    "data": {
+        "type": "CSVDataManager",
+        "path": "e:/datasets/UrbanSound8K",
+        "format": "audio",
+        "loader": {
+            "shuffle": true,
+            "batch_size": 24,
+            "num_workers": 4,
+            "drop_last": true
+        },
+        "splits": {
+            "train": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "val": [
+                10
+            ]
+        }
+    },
+    "transforms": {
+        "type": "AudioTransforms",
+        "args": {
+            "channels": "avg",
+            "noise": [
+                0.3,
+                0.001
+            ],
+            "crop": [
+                0.4,
+                0.25
+            ]
+        }
+    },
+    "optimizer": {
+        "type": "SGD",
+        "args": {
+            "lr": 0.1,
+            "weight_decay": 0.0
+        }
+    },
+    "lr_scheduler": {
+        "type": "CosineAnnealingWarmRestarts",
+        "args": {
+            "T_0": 6,
+            "T_mult": 1,
+            "eta_min": 0.001
+        }
+    },
+    "model": {
+        "type": "AudioCRNN"
+    },
+    "train": {
+        "loss": "nll_loss",
+        "epochs": 3,
+        "save_dir": "saved_LR/",
+        "save_p": 1,
+        "verbosity": 2,
+        "monitor": "min val_loss",
+        "early_stop": 120,
+        "tbX": true
+    },
+    "metrics": "classification_metrics",
+    "net_mode": "init",
+    "cfg": "saved_LR/1130_210917\\checkpoints\\model.cfg"
+}
