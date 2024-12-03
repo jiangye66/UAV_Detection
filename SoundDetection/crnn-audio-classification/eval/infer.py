@@ -82,8 +82,8 @@ class AudioInference:
         data = [d.unsqueeze(0).to(self.device) for d in [sig_t, length, sr]]  # 将输入数据移动到设备上
 
         # 执行模型预测
-        # label, conf = self.model.predict(data)
-        label, conf = self.model.predict(data,"dog_bark")   #输入模型预测的标签
+        label, conf = self.model.predict(data)
+        # label, conf = self.model.predict(data,"dog_bark")   #输入模型预测的标签,可以指定一个标签
         return label, conf  # 返回预测的标签和置信度
 
     def draw(self, path, label, conf):
@@ -94,7 +94,13 @@ class AudioInference:
         :param conf: 置信度
         """
         sig, sr = load_audio(path)  # 加载音频
-        sig = torch.tensor(sig).mean(dim=1).view(1, 1, -1).float()  # 处理音频信号为合适尺寸
+        # sig = torch.tensor(sig).mean(dim=1).view(1, 1, -1).float()  # 处理音频信号为合适尺寸
+
+        sig = torch.tensor(sig)
+        if sig.dim() > 1:
+            sig = sig.mean(dim=1)
+        sig = sig.view(1, 1, -1).float()
+
         spec = self.mel(sig)[0]  # 生成梅尔频谱图
 
         # 创建输出路径的文件夹

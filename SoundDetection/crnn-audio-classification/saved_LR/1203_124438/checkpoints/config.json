@@ -61,7 +61,7 @@
     },
     "train": {
         "loss": "nll_loss",
-        "epochs": 10,
+        "epochs": 2,
         "save_dir": "saved_LR/",
         "save_p": 1,
         "verbosity": 2,
@@ -71,5 +71,5 @@
     },
     "metrics": "classification_metrics",
     "net_mode": "init",
-    "cfg": "model.cfg"
+    "cfg": "saved_LR/1203_124438\\checkpoints\\model.cfg"
 }

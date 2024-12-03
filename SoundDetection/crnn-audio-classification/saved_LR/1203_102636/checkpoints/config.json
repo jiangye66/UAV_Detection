@@ -17,10 +17,7 @@
                 3,
                 4,
                 5,
-                6,
-                7,
-                8,
-                9
+                20
             ],
             "val": [
                 10
@@ -61,7 +58,7 @@
     },
     "train": {
         "loss": "nll_loss",
-        "epochs": 10,
+        "epochs": 100,
         "save_dir": "saved_LR/",
         "save_p": 1,
         "verbosity": 2,
@@ -71,5 +68,5 @@
     },
     "metrics": "classification_metrics",
     "net_mode": "init",
-    "cfg": "model.cfg"
+    "cfg": "saved_LR/1203_102636\\checkpoints\\model.cfg"
 }

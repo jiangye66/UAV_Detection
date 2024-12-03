@@ -71,5 +71,5 @@
     },
     "metrics": "classification_metrics",
     "net_mode": "init",
-    "cfg": "model.cfg"
+    "cfg": "saved_LR/1203_145124\\checkpoints\\model.cfg"
 }

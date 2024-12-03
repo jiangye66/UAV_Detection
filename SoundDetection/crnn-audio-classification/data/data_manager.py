@@ -39,8 +39,7 @@ class FolderDataManager(object):
         else:         
             data_arr = self._get_arr(data_dic)        
             self.data_splits = self._get_splits(data_arr)
-            torch.save(self.data_splits, path_splits) 
-
+            torch.save(self.data_splits, path_splits)
 
     def _get_splits(self, arr):
         np.random.seed(0)
