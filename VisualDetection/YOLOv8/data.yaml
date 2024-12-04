@@ -1,4 +1,0 @@
-train: "D:/detection/datasets/anti-uav/test-dev/IR/train/images"
-val: "D:/detection/datasets/anti-uav/test-dev/IR/val/images"
-nc: 1
-names: ["drone"]
