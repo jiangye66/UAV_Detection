@@ -1,0 +1,6 @@
+train: "D:/detection/datasets/yolo_dataset/train/images"
+val: "D:/detection/datasets/yolo_dataset/val/images"
+test: "D:/detection/datasets/yolo_dataset/test/images"
+
+nc: 1
+names: ["drone"]
