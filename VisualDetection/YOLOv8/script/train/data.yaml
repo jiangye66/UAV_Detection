@@ -1,4 +1,6 @@
-train: "E:/datasets/Anti-UAV-RGBT/sample/yolo_dataset/train/images"
-val: "E:/datasets/Anti-UAV-RGBT/sample/yolo_dataset/val/images"
+train: "E:/datasets/Anti-UAV-RGBT/yolo_dataset/train/images"
+val: "E:/datasets/Anti-UAV-RGBT/yolo_dataset/val/images"
+test: "E:/datasets/Anti-UAV-RGBT/yolo_dataset/test/images"
+
 nc: 1
 names: ["drone"]
